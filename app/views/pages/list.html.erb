@@ -1,0 +1,30 @@
+<div class="page list">
+	<h2>Pages</h2>
+
+<%= link_to("Add New Subject", {:action => "new"}, :class => "action new") %>
+	<br />	<br />
+	
+	<table class="listing" summary="Page List">
+		<tr class="header">
+			<th>&nbsp;</th>
+			<th>Name</th>
+			<th>Visible</th>
+			<th>Position</th>
+			<th>Permalink</th>
+			<th>Actions</th>
+		</tr>
+		<% @pages.each do |page| %>
+		<tr>
+			<td><%= page.name %></td>
+			<td class="center"><%= page.visible ? 'Yes' : 'No' %></td>
+			<td><%= page.position %></td>
+			<td><%= page.permalink %></td>
+			<td class="actions">
+        <%= link_to("Show", {:action => "show", :id => page.id}, :class => "action show") %>
+        <%= link_to("Edit", '#', :class => 'action edit') %>
+        <%= link_to('Delete', '#', :class => 'action delete') %>
+      </td>
+		</tr>
+    <% end %>
+	</table>
+</div>
